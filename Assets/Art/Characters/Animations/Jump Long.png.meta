@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 511b8e491a5ac0d4bb16e961fb3942ed
+guid: 4f20bc2f95c3db840bc77f84a5dc5a12
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Animaci\xF3n walkingG1000 _0"
+      name: Jump Long_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e748dd633c88b1a4299ed2c07f1f23e7
-      internalID: -859053920
+      spriteID: fcf600c8c2d19d7488350858d96857a1
+      internalID: -1789932174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Animaci\xF3n walkingG1000 _1"
+      name: Jump Long_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 32
         y: 0
-        width: 320
-        height: 320
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,71 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3f84eb7702cd4340a7871a31b5d8c74
-      internalID: -1568350676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Animaci\xF3n walkingG1000 _2"
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d87827bcfe62894caa748ed7ffcbd34
-      internalID: -272241987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Animaci\xF3n walkingG1000 _3"
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c627e910e9f061642b7f557c10d305cd
-      internalID: 292843561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Animaci\xF3n walkingG1000 _4"
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d3fa9b4e2f233348b8885481280e3ee
-      internalID: -674887235
+      spriteID: 26864d3a7898ae8469799e6ad20855bc
+      internalID: -475602258
       vertices: []
       indices: 
       edges: []
@@ -212,11 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Animaci\xF3n walkingG1000 _0": -859053920
-      "Animaci\xF3n walkingG1000 _1": -1568350676
-      "Animaci\xF3n walkingG1000 _2": -272241987
-      "Animaci\xF3n walkingG1000 _3": 292843561
-      "Animaci\xF3n walkingG1000 _4": -674887235
+      Jump Long_0: -1789932174
+      Jump Long_1: -475602258
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

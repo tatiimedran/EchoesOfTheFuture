@@ -4,53 +4,65 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 1f; //es la misma speed que el componente del script playercontroller en player
-    public Animator animator;
+    private Rigidbody2D _rb;
+    private BoxCollider2D boxCollider;
+    private bool _lookRight = true;
 
-    public float jumpForce = 4f; //rango de salto, en el inspector con 4 salta bien
-    public float rayCastLength = 0.1f;
+    private float remainingJumps; // saltos restantes
+    public float jumpForce = 4f;
+    public int jumpsMax = 10000;
     public LayerMask floorLayer;
+    public float speed = 2f;
 
-    private bool onFloor;
-    private Rigidbody2D _rb; 
 
-    void Start()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        remainingJumps = jumpsMax;
+
     }
 
-    //codigo para que camine
     void Update()
     {
-        float speedX = Input.GetAxis("Horizontal")*Time.deltaTime*speed;
-        animator.SetFloat("movement", speedX * speed);
-
-        if (speedX < 0 )
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        if (speedX > 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-
-        Vector3 posicion = transform.position;
-        transform.position = new Vector3(speedX + posicion.x, posicion.y, posicion.z);
-
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayCastLength, floorLayer);
-        onFloor = hit.collider != null;
-        if (onFloor && Input.GetKeyDown (KeyCode.Space))
-        {
-            _rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);  
-        }
-        animator.SetBool("onFloor", onFloor);
+        ProcessMotion(); // procesar movimiento
+        ProcessJump(); // procesar salto
     }
 
-    void OnDrawGizmos() //figura imaginaria, la veo en el editor, no en el juego
+    bool _onFloor() // está en suelo
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * rayCastLength);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, new Vector2(boxCollider.bounds.size.x, boxCollider.bounds.size.y), 0f, Vector2.down, 0.2f, floorLayer);
+        return raycastHit.collider != null;
+    }
 
+    void ProcessJump() // procesar salto
+    {
+        if (_onFloor())
+        {
+            remainingJumps = jumpsMax;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0)
+        {
+            remainingJumps--; // es lo mismo que poner remainingJumps = remainingJumps - 1;
+            _rb.velocity = new Vector2(_rb.velocity.x, 0f); // esto es lo que hace que salte bien
+            _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+    }
+
+    void ProcessMotion() // movimiento horizontal a la derecha
+    {
+        float speedX = Input.GetAxis("Horizontal"); // speedX = inputMovimiento
+        _rb.velocity = new Vector2(speedX * speed, _rb.velocity.y);
+        ManageOrientation(speedX);
+    }
+
+    void ManageOrientation(float speed) // gestionar orientación del personaje izq o derecha
+    {
+        if ((_lookRight && speed < 0) || (!_lookRight && speed > 0))
+        {
+            _lookRight = !_lookRight;
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+        }
     }
 }

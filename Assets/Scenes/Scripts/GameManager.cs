@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
 
-    public int totalPoints { get { return _totalPoints; } } // Corrección aquí
+    public int totalPoints { get { return _totalPoints; } } 
     private int _totalPoints;
 
     private int _life = 3;

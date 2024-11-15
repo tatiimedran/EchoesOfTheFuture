@@ -15,12 +15,19 @@ public class PlayerController : MonoBehaviour
     public LayerMask floorLayer;
     public float speed = 2f;
 
+    //colision con agua
+    public float xInitial, yInitial;
+
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         remainingJumps = jumpsMax;
+
+        //colision agua
+        xInitial = transform.position.x;
+        yInitial = transform.position.y;
 
     }
 
@@ -51,9 +58,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ProcessMotion() // movimiento horizontal a la derecha
+    void ProcessMotion() // mov horizontal a la derecha
     {
-        float speedX = Input.GetAxis("Horizontal"); // speedX = inputMovimiento
+        float speedX = Input.GetAxis("Horizontal"); 
         _rb.velocity = new Vector2(speedX * speed, _rb.velocity.y);
         ManageOrientation(speedX);
     }
@@ -90,6 +97,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over"); FindObjectOfType<GameOver>().ShowGameOver();
 
         }
+    }
+
+    //colisionaguaaa
+    public void Reposition ()
+    {
+        transform.position = new Vector3(xInitial, yInitial, 0);
     }
 
 }

@@ -4,33 +4,32 @@ using UnityEngine;
 
 public class PlataformTour : MonoBehaviour
 {
-    public Transform[] pose; // Corrección: Transform[] para un array de posiciones
+    public Transform[] pose; 
     public float speed;
-    public int ID; // numeración de posiciones
-    public int sum; // orientación de desplazamiento
+    public int ID; // NIM  posiciones
+    public int sum; 
 
     void Start()
     {
-        transform.position = pose[0].position; // Corrección: uso de corchetes para acceder al array
+        transform.position = pose[0].position; 
     }
 
     void Update()
     {
-        if (transform.position == pose[ID].position) // Corrección: posición está bien escrito
+        if (transform.position == pose[ID].position) 
         {
             ID += sum;
         }
 
-        if (ID == pose.Length - 1) // Comprobación para el último índice del array
+        if (ID == pose.Length - 1) 
         {
             sum = -1;
         }
 
-        if (ID == 0) // Comprobación para el primer índice del array
+        if (ID == 0) 
         {
             sum = 1;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, pose[ID].position, speed * Time.deltaTime); // Corrección: uso de corchetes para acceder al array
-    }
+        transform.position = Vector3.MoveTowards(transform.position, pose[ID].position, speed * Time.deltaTime); 
 }

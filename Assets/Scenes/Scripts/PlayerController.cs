@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int score;
     private Rigidbody2D _rb;
     private BoxCollider2D boxCollider;
     private bool _lookRight = true;
@@ -81,6 +82,14 @@ public class PlayerController : MonoBehaviour
             transform.parent = null;
         }
     }
+    //agregue
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "SpecialSphere")
+        {
+            Debug.Log("Game Over"); FindObjectOfType<GameOver>().ShowGameOver();
 
+        }
+    }
 
 }

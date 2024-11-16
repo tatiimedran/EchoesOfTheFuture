@@ -16,20 +16,21 @@ public class PlataformTour : MonoBehaviour
 
     void Update()
     {
-        if (transform.position == pose[ID].position) 
+        if (transform.position == pose[ID].position)
         {
             ID += sum;
         }
 
-        if (ID == pose.Length - 1) 
+        if (ID == pose.Length - 1)
         {
             sum = -1;
         }
 
-        if (ID == 0) 
+        if (ID == 0)
         {
             sum = 1;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, pose[ID].position, speed * Time.deltaTime); 
+        transform.position = Vector3.MoveTowards(transform.position, pose[ID].position, speed * Time.deltaTime);
+    }
 }
